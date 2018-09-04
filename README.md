@@ -35,7 +35,9 @@ To enable AHUB use the offers with "BYOL" in the name. Current offer list in Aus
 + SQL2017-WS2016           
 + SQL2017-WS2016-BYOL       
 
-3. Run the primary powershell script "sqlias.ps1".
+3. Open the primary powershell script "sqlias.ps1". Change "{Path to your config file}" to the actual full path of your config file. 
+
+4. Run "sqlias.ps1"
 
 ## Code of Conduct
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
