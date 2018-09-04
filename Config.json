@@ -7,7 +7,10 @@
 "Storage":{
     "StorageSku":"Standard_LRS",
     "DataDiskSize":1024,
-    "DataDiskSku":"Standard_LRS"
+    "DataDiskSku":"Standard_LRS",
+    "NumberOfDataDisks":6,
+    "NumberOfTempDBDisks":3,
+    "NumberOfLogDisksDisks":4
 },
 "Network":{
     "SubnetName":"Default",
