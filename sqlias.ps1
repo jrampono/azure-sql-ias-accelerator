@@ -1,5 +1,5 @@
 # Configuration Variables
-$Configs = (Get-Content 'C:\Jrambo\Git\WorkMS\SQL IAS Powershell\Config.json' | Out-String | ConvertFrom-Json)
+$Configs = (Get-Content '{Path to your config file}' | Out-String | ConvertFrom-Json)
 
 
 ## Global
