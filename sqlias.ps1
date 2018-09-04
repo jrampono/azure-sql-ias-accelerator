@@ -1,7 +1,6 @@
 # Configuration Variables
 $Configs = (Get-Content '{Path to your config file}' | Out-String | ConvertFrom-Json)
 
-
 ## Global
 $Location =  $Configs.Globals.Location
 $ResourceGroupName = $Configs.Globals.ResourceGroupName
@@ -75,20 +74,20 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $P
 #Create Storage Pools in Azure 
 $diskConfig = New-AzureRmDiskConfig -Location  $Location -CreateOption Empty -DiskSizeGB $DataDiskSize -Sku $DataDiskSku
 #Data Disks (6) 
-For ($i=0; $i -le 5; $i++) {
+For ($i=0; $i -le ($Configs.Storage.NumberOfDataDisks); $i++) {
     $DataDiskNameTemp = $DataDiskName + $i
     New-AzureRmDisk -ResourceGroupName $ResourceGroupName -DiskName $DataDiskNameTemp -Disk $diskConfig    
    }
 
 #Log Disks (3) 
-For ($i=0; $i -le 2; $i++) {
+For ($i=0; $i -le ($Configs.Storage.NumberOfLogDisks); $i++) {
     $LogDiskName = $DataDiskName + "Log" + $i
     New-AzureRmDisk -ResourceGroupName $ResourceGroupName -DiskName $LogDiskName -Disk $diskConfig    
    }
 
    
 #TempDB Disks (4) 
-For ($i=0; $i -le 3; $i++) {
+For ($i=0; $i -le ($Configs.Storage.NumberOfTempDBDisks); $i++) {
     $TempDBDiskName = $DataDiskName + "TempDB" + $i
     New-AzureRmDisk -ResourceGroupName $ResourceGroupName -DiskName $TempDBDiskName -Disk $diskConfig    
    }
@@ -117,7 +116,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName $ResourceGroupName -Locati
 # Set Caching Mode
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName $ResourceGroupName  -Name $VMName
 
-For ($i=0; $i -le 13; $i++) {
+For ($i=0; $i -le ($Configs.Storage.NumberOfDataDisks+$Configs.Storage.NumberOfTempDBDisks+$Configs.Storage.NumberOfLogDisksDisks); $i++) {
     Set-AzureRmVMDataDisk -VM $VirtualMachine -Lun $i -Caching ReadOnly 
    }
 
