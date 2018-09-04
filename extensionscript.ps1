@@ -16,5 +16,8 @@ $Partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskId $VirtualDi
 
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false -Partition $Partition
 
+#Todo: Add code to set default locations for SQL DB files. 
+
+
 #Remove-VirtualDisk "DataFiles"
 #Remove-StoragePool -FriendlyName "DataFiles"
