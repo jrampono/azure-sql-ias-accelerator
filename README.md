@@ -3,7 +3,7 @@ Powershell Script to Assist with IAS SQL Deployments
 
 ## Instructions
 
-1. Create an Azure Storage Account and container and upload the file "extensionscript.ps1" to it. This is the post deployment script that will customise the VM image after it is provisioned. Create a SAS URI to allow automated access to this file. 
+1. Create an Azure Storage Account and container and upload the file "extensionscript.ps1" to it. This is the post deployment script that will customise the VM image after it is provisioned. 
 
 2. Update the Config.json file with your specific configuration settings. Use (https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmimageoffer?view=azurermps-6.8.1)[Get-AzureMVMImageOffer] to list all available images. 
 For example: 
