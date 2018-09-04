@@ -1,0 +1,35 @@
+{
+"Globals": {
+    "Location":"{Insert your preferred resource location here}",
+    "ResourceGroupName":"{Insert your ResourceGroupName here}",
+    "SubscriptionId":"{Insert your subscriptionid here}"
+},
+"Storage":{
+    "StorageSku":"Standard_LRS",
+    "DataDiskSize":1024,
+    "DataDiskSku":"Standard_LRS"
+},
+"Network":{
+    "SubnetName":"Default",
+    "VNetAddressPrefix":"10.0.0.0/16",
+    "VNetSubnetAddressPrefix":"10.0.0.0/24",
+    "TCPIPAllocationMethod":"Dynamic"
+},
+"Compute":{
+    "VMName":"sqlvm",
+    "ComputerName":"Server", 
+    "VMSize":"Standard_DS15_v2",
+    "AdminUser":"{Insert your admin username here}",
+    "AdminPassword":"{Insert your password here}"
+},
+"Image":{
+    "PublisherName":"MicrosoftSQLServer",
+    "OfferName":"SQL2017-WS2016-BYOL",
+    "Sku":"Enterprise",
+    "Version":"14.0.1000320"
+},
+"PostDeploymentScript":{
+    "ScriptStorageAccountName":"{Insert your storage account name here}",
+    "ScriptStorageAccountKey":"{Insert yoru storage account key here}"
+}
+}
